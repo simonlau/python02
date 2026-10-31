@@ -1,18 +1,21 @@
 #!/usr/bin/env python3
 
-def garden_operations(operation_number: int):
+
+def garden_operations(operation_number: int) -> None:
     match operation_number:
         case 0:
-            int("abc")
+            _ = int("abc")
         case 1:
             42 / 0  # pyrefly:ignore[division-by-zero]
         case 2:
-            open("what.txt")
+            _ = open("what.txt")
         case 3:
-            "42" + 42  # pyrefly:ignore[unsupported-operation]
+            "42" + 42  # type: ignore[operator]
+        case _:
+            pass
 
 
-def test_error_types(i: int):
+def test_error_types(i: int) -> None:
     try:
         print(f"Testing operation {i}")
         garden_operations(i)
@@ -26,7 +29,7 @@ def test_error_types(i: int):
         print(f"Caught {error.__class__.__name__}: {error}")
 
 
-def main():
+def main() -> None:
     print("=== Garden Error Types Demo ==\n")
     test_error_types(0)
     test_error_types(1)
@@ -36,5 +39,5 @@ def main():
     print("All error types tested successfully!")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

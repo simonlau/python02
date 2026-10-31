@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+
 class GardenError(Exception):
     def __init__(self, msg: str = "Unknown Garden Error"):
         super().__init__(msg)
@@ -15,28 +16,30 @@ class WaterError(GardenError):
         super().__init__(msg)
 
 
-def garden_operations(operation_number: int):
+def garden_operations(operation_number: int) -> None:
     match operation_number:
         case 0:
             raise PlantError("The tomato plant is wilting!")
         case 1:
             raise WaterError("Not enough water in the tank!")
+        case _:
+            pass
 
 
-def test_error_types():
-    print(f"Testing PlantError...")
+def test_error_types() -> None:
+    print("Testing PlantError...")
     try:
         garden_operations(0)
     except PlantError as error:
         print(f"Caught {error.__class__.__name__}: {error}")
 
-    print(f"Testing WaterError...")
+    print("Testing WaterError...")
     try:
         garden_operations(1)
     except WaterError as error:
         print(f"Caught {error.__class__.__name__}: {error}")
 
-    print(f"Testing GardenError...")
+    print("Testing GardenError...")
     try:
         garden_operations(0)
     except GardenError as error:
@@ -47,11 +50,11 @@ def test_error_types():
         print(f"Caught {error.__class__.__name__}: {error}")
 
 
-def main():
+def main() -> None:
     print("=== Custom Garden Errors Demo ==\n")
     test_error_types()
     print("All error types tested successfully!")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

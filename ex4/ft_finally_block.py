@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
 
+
+from typing import TypeAlias
+
+Plant: TypeAlias = str
+
+
 class GardenError(Exception):
     def __init__(self, msg: str = "Unknown Garden Error"):
         super().__init__(msg)
@@ -15,14 +21,14 @@ class WaterError(GardenError):
         super().__init__(msg)
 
 
-def water_plant(plant_name: str):
+def water_plant(plant_name: Plant) -> None:
     if plant_name[0].isupper():
         print(f"Watering {plant_name}: [OK]")
         return
     raise PlantError(f"Invalid plant name to water: {plant_name}")
 
 
-def test_watering_system(plants: list[str]):
+def test_watering_system(plants: list[Plant]) -> None:
     print("Opening watering system")
     try:
         for plant in plants:
@@ -34,10 +40,11 @@ def test_watering_system(plants: list[str]):
         print("Closing watering system")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print("=== Garden Watering System ==\n")
     print("Testing valid plants...")
     test_watering_system(["Tomato", "Lettuce", "Carrots"])
+
     print("\nTesting invalid plants...")
     test_watering_system(["Tomato", "lettuce"])
     print("\nCleanup always happens, even with errors!")

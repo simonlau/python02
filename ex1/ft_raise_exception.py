@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-def input_temperature(temp_str: str):
+
+def input_temperature(temp_str: str) -> int:
     """_summary_
 
     Args:
@@ -20,13 +21,13 @@ def input_temperature(temp_str: str):
     return temp
 
 
-def test_temperature():
-    temp_str = '25'
+def test_temperature() -> None:
+    temp_str: str = "25"
     print(f"Input data is '{temp_str}'")
-    temp = input_temperature(temp_str)
+    temp: int = input_temperature(temp_str)
     print(f"Temperature is now {temp}°C\n")
 
-    temp_str = 'abc'
+    temp_str = "abc"
     print(f"Input data is '{temp_str}'")
     try:
         temp = int(temp_str)
@@ -35,7 +36,7 @@ def test_temperature():
         print(error)
         print("\n")
 
-    temp_str = '100'
+    temp_str = "100"
     print(f"Input data is '{temp_str}'")
     try:
         temp = int(temp_str)
@@ -44,7 +45,7 @@ def test_temperature():
         print(error)
         print("\n")
 
-    temp_str = '-50'
+    temp_str = "-50"
     print(f"Input data is '{temp_str}'")
     try:
         temp = int(temp_str)
@@ -54,11 +55,11 @@ def test_temperature():
         print("\n")
 
 
-def main():
+def main() -> None:
     print("=== Garden Temperature Checker ==\n")
     test_temperature()
     print("All tests complete - program didn't crash!")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
