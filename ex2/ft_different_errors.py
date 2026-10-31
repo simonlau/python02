@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 
+from typing import Literal, TypeAlias
 
-def garden_operations(operation_number: int) -> None:
+OpsNum: TypeAlias = Literal[0, 1, 2, 3] | Literal[4, 5]
+
+
+def garden_operations(operation_number: OpsNum) -> None:
     match operation_number:
         case 0:
             _ = int("abc")
@@ -15,7 +19,7 @@ def garden_operations(operation_number: int) -> None:
             pass
 
 
-def test_error_types(i: int) -> None:
+def test_error_types(i: OpsNum) -> None:
     try:
         print(f"Testing operation {i}")
         garden_operations(i)

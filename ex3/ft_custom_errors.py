@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 
 
+from typing import Literal, TypeAlias
+
+OpsNum: TypeAlias = Literal[0, 1]
+
+
 class GardenError(Exception):
     def __init__(self, msg: str = "Unknown Garden Error"):
         super().__init__(msg)
@@ -16,14 +21,12 @@ class WaterError(GardenError):
         super().__init__(msg)
 
 
-def garden_operations(operation_number: int) -> None:
+def garden_operations(operation_number: OpsNum) -> None:
     match operation_number:
         case 0:
             raise PlantError("The tomato plant is wilting!")
         case 1:
             raise WaterError("Not enough water in the tank!")
-        case _:
-            pass
 
 
 def test_error_types() -> None:
