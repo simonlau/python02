@@ -1,0 +1,27 @@
+{
+  "LANGUAGE": {
+    "0": [
+      "name",
+      "constant",
+      "f-string",
+      "function call",
+      "if",
+      "def",
+      "return",
+      "=",
+      "+",
+      "/",
+      "+=",
+      "==",
+      "try",
+      "keyword argument",
+      "int",
+      "print"
+    ],
+    "2": [
+      "open"
+    ]
+  },
+  "IMPORTS": {},
+  "METHODS": {}
+}
