@@ -24,9 +24,11 @@ class WaterError(GardenError):
 def garden_operations(operation_number: OpsNum) -> None:
     match operation_number:
         case 0:
-            raise PlantError("The tomato plant is wilting!")
+            msg = "The tomato plant is wilting!"
+            raise PlantError(msg)
         case 1:
-            raise WaterError("Not enough water in the tank!")
+            msg = "Not enough water in the tank!"
+            raise WaterError(msg)
 
 
 def test_error_types() -> None:

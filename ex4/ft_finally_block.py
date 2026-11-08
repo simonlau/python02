@@ -25,7 +25,8 @@ def water_plant(plant_name: Plant) -> None:
     if plant_name[0].isupper():
         print(f"Watering {plant_name}: [OK]")
         return
-    raise PlantError(f"Invalid plant name to water: {plant_name}")
+    msg = f"Invalid plant name to water: {plant_name}"
+    raise PlantError(msg)
 
 
 def test_watering_system(plants: list[Plant]) -> None:
@@ -34,7 +35,7 @@ def test_watering_system(plants: list[Plant]) -> None:
         for plant in plants:
             water_plant(plant)
     except PlantError as error:
-        print(f"Caught PlantError: { error }")
+        print(f"Caught PlantError: {error}")
         print(".. ending tests and returning to main")
     finally:
         print("Closing watering system")

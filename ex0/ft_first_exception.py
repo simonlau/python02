@@ -2,17 +2,6 @@
 
 
 def input_temperature(temp_str: str) -> int:
-    """_summary_
-
-    Args:
-        temp_str (str): _description_
-
-    Returns:
-        _type_: _description_
-
-    Raises:
-        ValueError: If str cannot be converted
-    """
     return int(temp_str)
 
 

@@ -2,22 +2,13 @@
 
 
 def input_temperature(temp_str: str) -> int:
-    """_summary_
-
-    Args:
-        temp_str (str): _description_
-
-    Returns:
-        _type_: _description_
-
-    Raises:
-        ValueError: If str cannot be converted
-    """
     temp = int(temp_str)
-    if temp >= 40:
-        raise ValueError(f"{temp}°C is too hot for plants max 40°C")
-    elif temp <= 0:
-        raise ValueError(f"{temp}°C is too cold for plants (min 0°C)")
+    if temp >= 40:  # ruff: ignore[magic-value-comparison]
+        msg = f"{temp}°C is too hot for plants max 40°C"
+        raise ValueError(msg)
+    if temp <= 0:
+        msg = f"{temp}°C is too cold for plants (min 0°C)"
+        raise ValueError(msg)
     return temp
 
 

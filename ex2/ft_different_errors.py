@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
+# ruff: file-ignore[builtin-open, useless-expression]]
+# ruff: file-ignore[open-file-with-context-handler]]
 
 from typing import Literal, TypeAlias
 
-OpsNum: TypeAlias = Literal[0, 1, 2, 3] | Literal[4, 5]
+OpsNum: TypeAlias = Literal[0, 1, 2, 3, 4, 5]
 
 
 def garden_operations(operation_number: OpsNum) -> None:
@@ -12,9 +14,10 @@ def garden_operations(operation_number: OpsNum) -> None:
         case 1:
             42 / 0  # pyrefly:ignore[division-by-zero]
         case 2:
-            _ = open("what.txt")
+            _ = open("what.txt", encoding="utf-8")
         case 3:
-            "42" + 42  # type: ignore[operator]
+            # ty: ignore[unsupported-operator]
+            _ = "42" + 42  # type: ignore[operator]
         case _:
             pass
 
