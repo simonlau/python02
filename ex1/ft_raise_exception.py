@@ -2,11 +2,13 @@
 
 
 def input_temperature(temp_str: str) -> int:
+    max_temp = 40
+    min_temp = 0
     temp = int(temp_str)
-    if temp >= 40:  # ruff: ignore[magic-value-comparison]
+    if temp >= max_temp:
         msg = f"{temp}°C is too hot for plants max 40°C"
         raise ValueError(msg)
-    if temp <= 0:
+    if temp <= min_temp:
         msg = f"{temp}°C is too cold for plants (min 0°C)"
         raise ValueError(msg)
     return temp
@@ -23,27 +25,21 @@ def test_temperature() -> None:
     try:
         temp = int(temp_str)
     except ValueError as error:
-        print("Caught input_temperature error: ", end="")
-        print(error)
-        print("\n")
+        print(f"Caught input_temperature error: {error}\n")
 
     temp_str = "100"
     print(f"Input data is '{temp_str}'")
     try:
         temp = int(temp_str)
     except ValueError as error:
-        print("Caught input_temperature error: ", end="")
-        print(error)
-        print("\n")
+        print(f"Caught input_temperature error: {error}\n")
 
     temp_str = "-50"
     print(f"Input data is '{temp_str}'")
     try:
         temp = int(temp_str)
     except ValueError as error:
-        print("Caught input_temperature error: ", end="")
-        print(error)
-        print("\n")
+        print(f"Caught input_temperature error: {error}\n")
 
 
 def main() -> None:
