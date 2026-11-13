@@ -38,27 +38,29 @@ def test_error_types() -> None:
     except PlantError as error:
         print(f"Caught {error.__class__.__name__}: {error}")
 
+    print()
     print("Testing WaterError...")
     try:
         garden_operations(1)
     except WaterError as error:
         print(f"Caught {error.__class__.__name__}: {error}")
 
+    print()
     print("Testing GardenError...")
     try:
         garden_operations(0)
     except GardenError as error:
-        print(f"Caught {error.__class__.__name__}: {error}")
+        print(f"Caught {GardenError.__name__}: {error}")
     try:
         garden_operations(1)
     except GardenError as error:
-        print(f"Caught {error.__class__.__name__}: {error}")
+        print(f"Caught {GardenError.__name__}: {error}")
 
 
 def main() -> None:
     print("=== Custom Garden Errors Demo ==\n")
     test_error_types()
-    print("All error types tested successfully!")
+    print("\nAll error types tested successfully!")
 
 
 if __name__ == "__main__":
