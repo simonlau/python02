@@ -6,15 +6,15 @@ def input_temperature(temp_str: str) -> int:
 
 
 def test_temperature() -> None:
-    temp_str: str = "25"
+    temp_str = "25"
     print(f"Input data is '{temp_str}'")
-    temp: int = input_temperature(temp_str)
+    temp = input_temperature(temp_str)
     print(f"Temperature is now {temp}°C\n")
 
     temp_str = "abc"
     print(f"Input data is '{temp_str}'")
     try:
-        temp = input_temperature(temp_str)
+        input_temperature(temp_str)
     except ValueError as error:
         print(f"Caught input_temperature error: {error}\n")
 
