@@ -12,7 +12,8 @@ def garden_operations(operation_number: OpsNum) -> None:
         case 0:
             _ = int("abc")
         case 1:
-            42 / 0  # pyrefly:ignore[division-by-zero]
+            # ty: ignore[division-by-zero]
+            42 / 0
         case 2:
             _ = open("what.txt", encoding="utf-8")
         case 3:
