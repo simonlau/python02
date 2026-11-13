@@ -21,3 +21,9 @@ repos:
         # Add third-party type stubs here if your project needs them
         additional_dependencies: []
 
+  - repo: https://github.com/astral-sh/ty-pre-commit
+    # ty version.
+    rev: v0.0.101
+    hooks:
+      - id: ty
+

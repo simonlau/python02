@@ -7,6 +7,19 @@ dependencies = []
 [tool.pyrefly]
 preset = "all"
 
+[tool.ty.src]
+exclude = [".agents"]
+
+[tool.ty.rules]
+# Enable every available rule and treat all warnings as errors
+all = "error"
+
+[tool.ty.analysis]
+# Prevent narrowing builtin types to literals on equality checks
+strict-equality-semantics = true
+# Narrow unspecialized generics (e.g., isinstance(x, list)) to Top[list[Unknown]]
+strict-generic-narrowing = true
+
 [tool.ruff]
 # Sets the max line length for the formatter and isort
 line-length = 79
@@ -26,19 +39,19 @@ select = [
 ]
 
 ignore = [
-    "undocumented-public-module", 
-    "undocumented-public-class", 
+    "undocumented-public-module",
+    "undocumented-public-class",
     "undocumented-public-method",
-    "undocumented-public-function", 
-    "undocumented-public-package", 
-    "undocumented-magic-method",  
-    "undocumented-public-init",  
-    "incorrect-blank-line-before-class", 
-    "multi-line-summary-second-line",  
-    "missing-trailing-comma", 
-    "single-line-implicit-string-concatenation", 
-    "missing-copyright-notice", 
-    "print",  
+    "undocumented-public-function",
+    "undocumented-public-package",
+    "undocumented-magic-method",
+    "undocumented-public-init",
+    "incorrect-blank-line-before-class",
+    "multi-line-summary-second-line",
+    "missing-trailing-comma",
+    "single-line-implicit-string-concatenation",
+    "missing-copyright-notice",
+    "print",
 ]
 
 # Ensure you enforce type checking annotations strictly
@@ -65,9 +78,6 @@ warn_unused_configs = true
 
 [dependency-groups]
 dev = [
-    "allowed>=1.5.4",
     "pre-commit>=4.6.2",
-    "pyrefly>=1.4.0",
-    "pytype>=2024.10.11",
 ]
 
