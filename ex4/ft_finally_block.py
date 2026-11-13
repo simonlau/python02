@@ -22,11 +22,10 @@ class WaterError(GardenError):
 
 
 def water_plant(plant_name: Plant) -> None:
-    if plant_name[0].isupper():
-        print(f"Watering {plant_name}: [OK]")
-        return
-    msg = f"Invalid plant name to water: {plant_name}"
-    raise PlantError(msg)
+    if plant_name[0].capitalize() != plant_name[0]:
+        msg = f"Invalid plant name to water: {plant_name}"
+        raise PlantError(msg)
+    print(f"Watering {plant_name}: [OK]")
 
 
 def test_watering_system(plants: list[Plant]) -> None:
